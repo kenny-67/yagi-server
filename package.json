@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "now-start": "node .",
+    "now-start": "node index.js",
     "start": "nodemon index.js"
+  },
+  "engines": {
+    "node": "10.15.3"
   },
   "keywords": [],
   "author": "",

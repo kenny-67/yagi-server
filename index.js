@@ -15,12 +15,15 @@ app.get("/", (req, res) => {
 const membersRoutes = require("./api/routes/member");
 const adminRoutes = require("./api/routes/admin");
 
+const port = process.env.PORT || 7000;
+
 // "mongodb://localhost:27017/yagi"
 
 mongoose
   .connect(
-    "mongodb://localhost:27017/yagi" ||
-      "mongodb+srv://kenny:Aspirine1@yagi-i6nqc.mongodb.net/test?retryWrites=true&w=majority",
+    "mongodb+srv://kenny:Aspirine1@yagi-i6nqc.mongodb.net/test?retryWrites=true&w=majority" ||
+      "mongodb://localhost:27017/yagi",
+
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -42,8 +45,8 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.listen(7000, () => {
-  console.log("listening on port 7000");
+app.listen(port, () => {
+  console.log("listening on port: " + port);
 });
 
 app.use("/register", membersRoutes);
